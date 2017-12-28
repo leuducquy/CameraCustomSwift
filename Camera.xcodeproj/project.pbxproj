@@ -193,7 +193,7 @@
 				TargetAttributes = {
 					65C0E0411EF3B68E00FBA1B3 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 7DDZ7Z48Q7;
+						DevelopmentTeam = Y7Q4G2E94A;
 						ProvisioningStyle = Automatic;
 					};
 					65C0E0551EF3B68E00FBA1B3 = {
@@ -415,10 +415,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7DDZ7Z48Q7;
+				DEVELOPMENT_TEAM = Y7Q4G2E94A;
 				INFOPLIST_FILE = Camera/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.rizwankce.Camera;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rizwankce.Camera1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -428,10 +428,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7DDZ7Z48Q7;
+				DEVELOPMENT_TEAM = Y7Q4G2E94A;
 				INFOPLIST_FILE = Camera/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.rizwankce.Camera;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rizwankce.Camera1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -514,6 +514,7 @@
 				65C0E06C1EF3B68E00FBA1B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		65C0E06D1EF3B68E00FBA1B3 /* Build configuration list for PBXNativeTarget "CameraTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +523,7 @@
 				65C0E06F1EF3B68E00FBA1B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		65C0E0701EF3B68E00FBA1B3 /* Build configuration list for PBXNativeTarget "CameraUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +532,7 @@
 				65C0E0721EF3B68E00FBA1B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

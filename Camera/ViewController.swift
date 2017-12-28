@@ -12,8 +12,8 @@ import AVFoundation
 class ViewController: UIViewController {
 
     @IBOutlet weak var previewView: UIView!
-    @IBOutlet weak var captureButton: UIButton!
-    @IBOutlet weak var messageLabel: UILabel!
+  
+    
     
     var captureSession: AVCaptureSession?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
@@ -23,8 +23,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        captureButton.layer.cornerRadius = captureButton.frame.size.width / 2
-        captureButton.clipsToBounds = true
+       
         
         // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video as the media type parameter
         let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
@@ -57,23 +56,14 @@ class ViewController: UIViewController {
             //Initialise the video preview layer and add it as a sublayer to the viewPreview view's layer
             videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
             videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-            videoPreviewLayer?.frame = view.layer.bounds
+            videoPreviewLayer?.frame = previewView.layer.bounds
             previewView.layer.addSublayer(videoPreviewLayer!)
             
             //start video capture
             captureSession?.startRunning()
             
-            messageLabel.isHidden = true
-            
-            //Initialize QR Code Frame to highlight the QR code
-            qrCodeFrameView = UIView()
-            
-            if let qrCodeFrameView = qrCodeFrameView {
-                qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
-                qrCodeFrameView.layer.borderWidth = 2
-                view.addSubview(qrCodeFrameView)
-                view.bringSubview(toFront: qrCodeFrameView)
-            }
+           
+        
         } catch {
             //If any error occurs, simply print it out
             print(error)
@@ -83,7 +73,7 @@ class ViewController: UIViewController {
     }
 
     override func viewDidLayoutSubviews() {
-        videoPreviewLayer?.frame = view.bounds
+        videoPreviewLayer?.frame = previewView.bounds
         if let previewLayer = videoPreviewLayer ,previewLayer.connection.isVideoOrientationSupported {
             previewLayer.connection.videoOrientation = UIApplication.shared.statusBarOrientation.videoOrientation ?? .portrait
         }
@@ -144,26 +134,7 @@ extension ViewController : AVCaptureMetadataOutputObjectsDelegate {
                        didOutputMetadataObjects metadataObjects: [Any]!,
                        from connection: AVCaptureConnection!) {
         // Check if the metadataObjects array is not nil and it contains at least one object.
-        if metadataObjects == nil || metadataObjects.count == 0 {
-            qrCodeFrameView?.frame = CGRect.zero
-            messageLabel.isHidden = true
-            return
-        }
-        
-        // Get the metadata object.
-        let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
-        
-        if metadataObj.type == AVMetadataObjectTypeQRCode {
-            // If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
-            let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
-            qrCodeFrameView?.frame = barCodeObject!.bounds
-            
-            if metadataObj.stringValue != nil {
-                messageLabel.isHidden = false
-                messageLabel.text = metadataObj.stringValue
-                debugPrint(metadataObj.stringValue)
-            }
-        }
+       
     }
 }
 
